@@ -1,0 +1,37 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}
+Post
+{% endblock title %}
+
+{% block content %}
+        <h2>
+        <td>{{ post.post_name | nofoobar }}</td>
+        <br><br>
+        <td>{{ post.post_datetime | date:'d M Y' }}</td>
+        <br><br>
+        <td>{{ post.post_value | nofoobar }}</td>
+        </h2>
+        <br><br><br><br><br><br><br><br>
+<!--        <style>-->
+<!--                table, th, td {-->
+<!--                  border: 1px solid black;-->
+<!--                }-->
+<!--        </style>-->
+        <table style="width:100%">
+        <tr>
+                <td>
+                        <form action="{{ post.id }}/delete">
+                        <input type="submit" value="Delete" />
+                        </form>
+                </td>
+                <td>
+                        <form action="{{ post.id }}/edit">
+                        <input type="submit" value="Edit" />
+                        </form>
+                </td>
+        </tr>
+        </table>
+{% endblock content %}
